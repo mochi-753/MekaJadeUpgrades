@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.devdyna.mekajadeupgrade.Main;
 
-import mekanism.common.tile.prefab.TileEntityConfigurableMachine;
+import mekanism.common.tile.base.TileEntityMekanism;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -61,8 +61,8 @@ public enum UpgradeProvider implements IBlockComponentProvider, IServerDataProvi
 
     @Override
     public void appendServerData(CompoundTag data, BlockAccessor accessor) {
-
-        TileEntityConfigurableMachine be = (TileEntityConfigurableMachine) accessor.getBlockEntity();
+        
+        TileEntityMekanism be = (TileEntityMekanism) accessor.getBlockEntity();
 
         for (Upgrade upgrade : Upgrade.values())
             if (be.getComponent().isUpgradeInstalled(upgrade))
