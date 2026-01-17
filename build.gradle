@@ -119,7 +119,8 @@ configurations {
 }
 
 dependencies {
-implementation "curse.maven:meka-268560:6895130"
+implementation "curse.maven:meka-268560:7132168"
+implementation "curse.maven:mekaextra-1026040:7404505"
 implementation "curse.maven:jade-324717:6853386"
 }
 

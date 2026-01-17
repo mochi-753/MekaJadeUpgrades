@@ -9,7 +9,9 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.phys.Vec2;
+import net.neoforged.fml.ModList;
 import snownee.jade.api.config.IPluginConfig;
 import snownee.jade.api.ui.IElement;
 import snownee.jade.api.ui.IElementHelper;
@@ -18,6 +20,8 @@ import mekanism.api.Upgrade;
 import mekanism.common.item.ItemUpgrade;
 import mekanism.common.registration.impl.ItemRegistryObject;
 import mekanism.common.registries.MekanismItems;
+import com.jerry.mekextras.api.ExtraUpgrade;
+import com.jerry.mekextras.common.registries.ExtraItems;
 
 @SuppressWarnings("null")
 public enum UpgradeProvider implements IBlockComponentProvider, IServerDataProvider<BlockAccessor> {
@@ -88,16 +92,37 @@ public enum UpgradeProvider implements IBlockComponentProvider, IServerDataProvi
     }
 
     public ItemRegistryObject<ItemUpgrade> getUpgrade(Upgrade upgrade) {
-        return switch (upgrade) {
-            case Upgrade.SPEED -> MekanismItems.SPEED_UPGRADE;
-            case Upgrade.ENERGY -> MekanismItems.ENERGY_UPGRADE;
-            case Upgrade.CHEMICAL -> MekanismItems.CHEMICAL_UPGRADE;
-            case Upgrade.ANCHOR -> MekanismItems.ANCHOR_UPGRADE;
-            case Upgrade.FILTER -> MekanismItems.FILTER_UPGRADE;
-            case Upgrade.MUFFLING -> MekanismItems.MUFFLING_UPGRADE;
-            case Upgrade.STONE_GENERATOR -> MekanismItems.STONE_GENERATOR_UPGRADE;
-            default -> null;
-        };
+
+        if (Upgrade.SPEED.equals(upgrade))
+            return MekanismItems.SPEED_UPGRADE;
+        if (Upgrade.ENERGY.equals(upgrade))
+            return MekanismItems.ENERGY_UPGRADE;
+        if (Upgrade.CHEMICAL.equals(upgrade))
+            return MekanismItems.CHEMICAL_UPGRADE;
+        if (Upgrade.ANCHOR.equals(upgrade))
+            return MekanismItems.ANCHOR_UPGRADE;
+        if (Upgrade.FILTER.equals(upgrade))
+            return MekanismItems.FILTER_UPGRADE;
+
+        if (Upgrade.MUFFLING.equals(upgrade))
+            return MekanismItems.MUFFLING_UPGRADE;
+
+        if (Upgrade.STONE_GENERATOR.equals(upgrade))
+            return MekanismItems.STONE_GENERATOR_UPGRADE;
+
+        if (ModList.get().isLoaded("mekanism_extras")) {
+
+            if (ExtraUpgrade.STACK.equals(upgrade))
+                return ExtraItems.STACK;
+            if (ExtraUpgrade.CREATIVE.equals(upgrade))
+                return ExtraItems.CREATIVE;
+            if (ExtraUpgrade.IONIC_MEMBRANE.equals(upgrade))
+                return ExtraItems.IONIC_MEMBRANE;
+
+        }
+
+        return null;
+
     }
 
 }
