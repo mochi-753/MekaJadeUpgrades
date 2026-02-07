@@ -122,6 +122,10 @@ dependencies {
 implementation "curse.maven:meka-268560:7132168"
 implementation "curse.maven:mekaextra-1026040:7404505"
 implementation "curse.maven:jade-324717:6853386"
+
+implementation "curse.maven:empo-1256390:7373610"
+implementation "curse.maven:empocore-1256399:7373611"
+implementation "curse.maven:kotlin-351264:7471280"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

@@ -23,6 +23,9 @@ import mekanism.common.registries.MekanismItems;
 import com.jerry.mekextras.api.ExtraUpgrade;
 import com.jerry.mekextras.common.registries.ExtraItems;
 
+import dev.lapis256.mekanism_empowered.api.MekEmpUpgrade;
+import dev.lapis256.mekanism_empowered.common.init.MekEmpItems;
+
 @SuppressWarnings("null")
 public enum UpgradeProvider implements IBlockComponentProvider, IServerDataProvider<BlockAccessor> {
     INSTANCE;
@@ -114,10 +117,34 @@ public enum UpgradeProvider implements IBlockComponentProvider, IServerDataProvi
 
             if (ExtraUpgrade.STACK.equals(upgrade))
                 return ExtraItems.STACK;
+
             if (ExtraUpgrade.CREATIVE.equals(upgrade))
                 return ExtraItems.CREATIVE;
+
             if (ExtraUpgrade.IONIC_MEMBRANE.equals(upgrade))
                 return ExtraItems.IONIC_MEMBRANE;
+
+        }
+
+        if (ModList.get().isLoaded("mekanism_empowered")) {
+
+            if (MekEmpUpgrade.getAUTO_INSERTER().equals(upgrade))
+                return MekEmpItems.INSTANCE.getAUTO_INSERTER();
+
+            if (MekEmpUpgrade.getEMPOWERED_ENERGY().equals(upgrade))
+                return MekEmpItems.INSTANCE.getEMPOWERED_ENERGY();
+
+            if (MekEmpUpgrade.getEMPOWERED_SPEED().equals(upgrade))
+                return MekEmpItems.INSTANCE.getEMPOWERED_SPEED();
+
+            if (MekEmpUpgrade.getFAST_ITEM_EJECT().equals(upgrade))
+                return MekEmpItems.INSTANCE.getFAST_ITEM_EJECT();
+
+            if (MekEmpUpgrade.getFAST_ITEM_INSERT().equals(upgrade))
+                return MekEmpItems.INSTANCE.getFAST_ITEM_INSERT();
+
+            if (MekEmpUpgrade.getIO_CAPACITY().equals(upgrade))
+                return MekEmpItems.INSTANCE.getIO_CAPACITY();
 
         }
 
