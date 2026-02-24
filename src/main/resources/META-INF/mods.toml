@@ -22,3 +22,17 @@ mandatory = true
 versionRange = "${minecraft_version_range}"
 ordering = "NONE"
 side = "BOTH"
+
+[[dependencies.${ mod_id }]]
+modId = "jade"
+mandatory = true
+versionRange = "${jade_version_range}"
+ordering = "NONE"
+side = "CLIENT"
+
+[[dependencies.${ mod_id }]]
+modId = "mekanism"
+mandatory = true
+versionRange = "${mekanism_version_range}"
+ordering = "NONE"
+side = "BOTH"
