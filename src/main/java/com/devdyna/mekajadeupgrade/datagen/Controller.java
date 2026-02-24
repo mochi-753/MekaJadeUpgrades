@@ -1,29 +1,26 @@
 package com.devdyna.mekajadeupgrade.datagen;
 
+import com.devdyna.mekajadeupgrade.MekanismJadeUpgrades;
 import com.devdyna.mekajadeupgrade.datagen.client.DataLang;
-import static com.devdyna.mekajadeupgrade.Main.MODID;
-
-import net.minecraft.data.PackOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.minecraft.data.PackOutput;
+import net.minecraftforge.data.event.GatherDataEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
-@SuppressWarnings({ "removal", "null", "deprecation" })
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, modid = MODID)
+@SuppressWarnings({"null"})
+@Mod.EventBusSubscriber(modid = MekanismJadeUpgrades.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Controller {
     @SubscribeEvent
-    public static void gatherData(GatherDataEvent e) {
-        DataGenerator g = e.getGenerator();
-        PackOutput po = g.getPackOutput();
+    public static void gatherData(GatherDataEvent event) {
+        DataGenerator generator = event.getGenerator();
+        PackOutput packOutput = generator.getPackOutput();
 
-        providerGen(e, g, new DataLang(po));
-
+        providerGen(event, generator, new DataLang(packOutput));
     }
 
-    private static <T extends DataProvider> void providerGen(GatherDataEvent e, DataGenerator g, T f) {
-        g.addProvider(e.includeClient(), f);
+    private static <T extends DataProvider> void providerGen(GatherDataEvent event, DataGenerator generator, T f) {
+        generator.addProvider(event.includeClient(), f);
     }
-
 }
