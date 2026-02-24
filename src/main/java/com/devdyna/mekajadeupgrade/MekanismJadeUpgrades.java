@@ -14,6 +14,5 @@ public class MekanismJadeUpgrades {
     }
 
     public MekanismJadeUpgrades(FMLJavaModLoadingContext context) {
-
     }
 }
