@@ -1,6 +1,6 @@
 package com.devdyna.mekajadeupgrade.client.provider;
 
-import com.devdyna.mekajadeupgrade.MekanismJadeUpgrades;
+import com.devdyna.mekajadeupgrade.MekaJadeUpgrades;
 import com.jerry.mekanism_extras.api.ExtraUpgrade;
 import com.jerry.mekanism_extras.common.registry.ExtraItem;
 import dev.lapis256.mekanism_empowered.api.MekEmpUpgrade;
@@ -93,7 +93,7 @@ public enum UpgradeProvider implements IBlockComponentProvider, IServerDataProvi
 
     @Override
     public ResourceLocation getUid() {
-        return ResourceLocation.fromNamespaceAndPath(MekanismJadeUpgrades.MOD_ID, "upgrades");
+        return ResourceLocation.fromNamespaceAndPath(MekaJadeUpgrades.MOD_ID, "upgrades");
     }
 
     public ItemRegistryObject<ItemUpgrade> getUpgrade(Upgrade upgrade) {

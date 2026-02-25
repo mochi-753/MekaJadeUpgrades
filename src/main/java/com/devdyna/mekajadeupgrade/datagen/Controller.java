@@ -1,6 +1,6 @@
 package com.devdyna.mekajadeupgrade.datagen;
 
-import com.devdyna.mekajadeupgrade.MekanismJadeUpgrades;
+import com.devdyna.mekajadeupgrade.MekaJadeUpgrades;
 import com.devdyna.mekajadeupgrade.datagen.client.DataLang;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
@@ -10,7 +10,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @SuppressWarnings({"null"})
-@Mod.EventBusSubscriber(modid = MekanismJadeUpgrades.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = MekaJadeUpgrades.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Controller {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {

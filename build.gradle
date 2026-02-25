@@ -10,12 +10,13 @@ version = mod_version
 group = mod_group_id
 
 base {
-    archivesName = "Mekanism-Jade-Upgrades"
+    archivesName = "MekaJadeUpgrades-Backport"
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
+
 minecraft {
     mappings channel: mapping_channel, version: mapping_version
     copyIdeResources = true
